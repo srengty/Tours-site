@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CityController;
 use App\Http\Controllers\HotelsController;
 use App\Models\City;
 use Illuminate\Support\Facades\Route;
@@ -16,6 +17,8 @@ Route::get('my-data', function(){
     $cities = City::all();
     return view('my-data-view', ['cities' => $cities]);
 });
+Route::get('/cities/add', [CityController::class, 'create']);
+Route::post('/cities/store',[CityController::class, 'store']);
 //Route::resource('hotels', HotelsController::class);
 /**
  * Route::get()
@@ -24,3 +27,11 @@ Route::get('my-data', function(){
  * Route::patch()
  * Route::delete()
  */
+
+ /**
+  * Create routes for countries
+   - List all countries
+   - Add a country (/countries/add, /countries/store)
+   - Edit a country (/countries/edit/{id}, /countries/update/{id})
+   - Delete a country (/countries/delete/{id})
+  */
